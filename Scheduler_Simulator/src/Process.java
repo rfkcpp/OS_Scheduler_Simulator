@@ -15,6 +15,7 @@ public class Process {
 		
 		id = my_id;
 		total_cpu_time = total_time;
+		active = false;
 		
 	}//end of constructor
 	
