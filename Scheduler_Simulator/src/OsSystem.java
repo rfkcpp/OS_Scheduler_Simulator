@@ -103,8 +103,8 @@ public class OsSystem {
 	// Range of Math.random -> 0.0 - 1.0
 	// 0.0 * (max - min) + min => min
 	// 1.0 * (max - min) + min => max - min + min => max
-	private int generate_arrival_time(int average) {
-		return (int)(Math.random()*(average));
+	private int generate_arrival_time(int max_arrival_time) {
+		return (int)(Math.random()*(max_arrival_time));
 	}
 	
 	//Rick###############################################################################################################
