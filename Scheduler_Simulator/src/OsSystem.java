@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.*;
 public class OsSystem {
 	
 	
@@ -71,9 +71,9 @@ public class OsSystem {
 		
 		for (int i=0; i<processes.size(); i++) {
 			
-			Process p = new Process(i, gaussian_random());
+			Process p = new Process(i, gaussian_random(average, standard_deviation));
 			
-			p.set_arrival_time(generate_arrival_time());
+			p.set_arrival_time(generate_arrival_time(average));
 			if (p.get_arrival_time()==0)
 					p.set_active(true);
 			
@@ -94,17 +94,17 @@ public class OsSystem {
 	
 	
 	//returns a random integer from Gaussian distribution with mean=average and standard deviation=standard_deviation
-	private int gaussian_random() {
-		
-		//Rick-----------------
-		return 1;
+	private int gaussian_random(int average, int standard_deviation) {
+			Random ran = new Random();
+		return (int)ran.nextGaussian() * standard_deviation + average;
 	}
 	
 	//returns a random integer between 0 and max_arrival_time
-	private int generate_arrival_time() {
-		
-		//Rick-------------------
-		return 1;
+	// Range of Math.random -> 0.0 - 1.0
+	// 0.0 * (max - min) + min => min
+	// 1.0 * (max - min) + min => max - min + min => max
+	private int generate_arrival_time(int average) {
+		return (int)(Math.random()*(average));
 	}
 	
 	//Rick###############################################################################################################
