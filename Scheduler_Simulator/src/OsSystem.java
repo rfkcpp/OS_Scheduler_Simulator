@@ -95,7 +95,8 @@ public class OsSystem {
 	
 	//returns a random integer from Gaussian distribution with mean=average and standard deviation=standard_deviation
 	private int gaussian_random(int average, int standard_deviation) {
-			Random ran = new Random();
+			int randomArrival = generate_arrival_time(max_arrival_time);
+			Random ran = new Random(randomArrival);
 		return (int)ran.nextGaussian() * standard_deviation + average;
 	}
 	
